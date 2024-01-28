@@ -15,8 +15,8 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
-import { supabase } from '~/plugins/supabase'; // Import your Supabase instance
+// import { ref } from 'vue';
+// import { supabase } from '~/plugins/supabase'; // Import your Supabase instance
 
 const formData = ref({
   column1: '',
