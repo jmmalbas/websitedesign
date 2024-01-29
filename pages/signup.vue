@@ -1,22 +1,34 @@
+<script setup>
+const client = useSupabaseClient();
+const email = ref("");
+const password = ref(null);
+const errorMessage = ref(null);
+const successMsg = ref("");
+
+async function signUp() {
+  try {
+    const { data, error } = await client.auth.signUp({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) throw error;
+    successMsg.value = "Check your email to confirm your account.";
+  } catch (error) {
+    errorMessage.value = error.message;
+  }
+}
+</script>
+
 <template>
   <div class="signup-form">
-    <form @submit.prevent="signup">
-      <h3>Signup</h3>
-
-      <label for="firstname">First Name:</label>
-      <input type="firstname" id="firstname" v-model="userData.firstname" required />
-
-      <label for="lastname">Last Name:</label>
-      <input type="lastname" id="lastname" v-model="userData.lastname" required />
-
-      <label for="username">Username:</label>
-      <input type="username" id="username" v-model="userData.username" required />
+    <form @submit.prevent="signUp">
+      <h3>Register</h3>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" v-model="userData.email" required />
+      <input type="email" id="email" v-model="email" required />
 
       <label for="password">Password:</label>
-      <input type="password" id="password" v-model="userData.password" required />
+      <input type="password" id="password" v-model="password" required />
 
       <button type="submit">Signup</button>
     </form>
@@ -27,27 +39,6 @@
     </nav>
   </div>
 </template>
-
-<script>
-import { ref } from 'vue';
-import { createClient } from '@supabase/supabase-js';
-
-export default {
-  data() {
-    return {
-      userData: {
-        email: '',
-        password: '',
-      },
-    };
-  },
-  methods: {
-    async signup() {
-      // ... your signup logic ...
-    },
-  },
-};
-</script>
 
 <style scoped>
 .signup-form {
@@ -91,7 +82,7 @@ input {
   padding: 8px;
   margin-top: 10px;
   box-sizing: border-box;
-  color: black; /* Change text color to white */
+  color: black; /* Change text color to black */
 }
 
 input:focus {

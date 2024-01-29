@@ -6,8 +6,8 @@
         <NuxtLink to="/login" class="sign-button">Log In</NuxtLink>
         <!--<button class="signup-button">Sign Up</button>-->
         <NuxtLink to="/signup" class="sign-button">Sign Up</NuxtLink>
-        <NuxtLink to="/employees" class="sign-button">Employees</NuxtLink>
-        <NuxtLink to="/departments" class="sign-button">Departments</NuxtLink>
+        <!--<NuxtLink to="/employees" class="sign-button">Employees</NuxtLink>
+        <NuxtLink to="/departments" class="sign-button">Departments</NuxtLink>-->
       </div>
     </nav>
     <div class="content-container">

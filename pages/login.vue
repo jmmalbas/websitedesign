@@ -1,13 +1,35 @@
+<script setup>
+const client = useSupabaseClient();
+const router = useRouter();
+
+const email = ref("");
+const password = ref(null);
+const errorMsg = ref(null);
+
+async function signIn() {
+  try {
+    const { error } = await client.auth.signInWithPassword({
+      email: email.value,
+      password: password.value,
+    });
+    if (error) throw error;
+    router.push("/profile");
+    } catch (error) {
+    errorMsg.value = error.message;
+  }
+}
+</script>
+
 <template>
   <div class="login-form">
-    <form @submit.prevent="login">
+    <form @submit.prevent="signIn">
       <h3>Login</h3>
 
       <label for="email">Email:</label>
-      <input type="email" id="email" v-model="userData.email" required />
+      <input type="email" id="email" v-model="email" required />
 
       <label for="password">Password:</label>
-      <input type="password" id="password" v-model="userData.password" required />
+      <input type="password" id="password" v-model="password" required />
 
       <button type="submit">Login</button>
     </form>
@@ -22,48 +44,6 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue';
-import { useRouter } from 'vue-router';
-import { createClient } from '@supabase/supabase-js';
-
-// Create the Supabase client instance once
-const supabaseUrl = 'https://enukyykbooksymhuclgk.supabase.co'; // Replace with your Supabase URL
-const supabaseKey = 'YOUR_SUPABASE_PUBLIC_KEY'; // Replace with your Supabase public key
-
-const { auth } = createClient(supabaseUrl, supabaseKey);
-
-export default {
-  data() {
-    return {
-      userData: {
-        email: '',
-        password: '',
-      },
-    };
-  },
-  methods: {
-    async login() {
-      try {
-        const { user, error } = await auth.signIn({
-          email: this.userData.email,
-          password: this.userData.password,
-        });
-
-        if (error) {
-          console.error('Login error:', error.message);
-        } else {
-          console.log('User logged in:', user);
-          // Redirect to the home page or any other route on successful login
-          this.$router.push('/');
-        }
-      } catch (error) {
-        console.error('Login error:', error.message);
-      }
-    },
-  },
-};
-</script>
 <style scoped>
 .login-form {
   text-align: center;
