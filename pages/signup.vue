@@ -11,10 +11,15 @@ async function signUp() {
       email: email.value,
       password: password.value,
     });
-    if (error) throw error;
-    successMsg.value = "Check your email to confirm your account.";
+    if (error) {
+      throw error;
+    } else {
+            successMsg.value = 'Check your email to confirm your account!';
+      errorMessage.value = '';  
+    }
   } catch (error) {
     errorMessage.value = error.message;
+    successMsg.value = '';  
   }
 }
 </script>
@@ -22,25 +27,58 @@ async function signUp() {
 <template>
   <div class="signup-form">
     <form @submit.prevent="signUp">
-      <h3>Register</h3>
+      <h3><strong class="register">Register</strong></h3>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" v-model="email" required />
+      
+      <div v-if="!successMsg">
+        <label for="email">Email:</label>
+        <input type="email" id="email" v-model="email" required />
 
-      <label for="password">Password:</label>
-      <input type="password" id="password" v-model="password" required />
+        <label for="password">Password:</label>
+        <input type="password" id="password" v-model="password" required />
 
-      <button type="submit">Signup</button>
+        <button type="submit">Signup</button>
+      </div>
+
+      
+      <div v-if="successMsg" class="success-message">
+        {{ successMsg }}
+      </div>
     </form>
+
+    
+    <div v-if="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
     <nav class="navbar">
       <div class="buttons">
-        <NuxtLink to="/" class="signup-button">Home</NuxtLink>
+        <NuxtLink to="/" class="nav-button">Home</NuxtLink>
+        <NuxtLink to="/login" class="nav-button">Log In</NuxtLink>
       </div>
     </nav>
   </div>
 </template>
 
 <style scoped>
+
+.register {
+  font-size: 20px;
+  color: rgb(31, 228, 250);
+}
+
+.success-message {
+  color: rgb(250, 251, 251);
+  margin-top: 10px;
+  text-align: center;
+  
+}
+
+.error-message {
+  color: red; 
+  margin-top: 10px;
+  text-align: center;
+}
 .signup-form {
   text-align: center;
   margin: auto;
@@ -65,7 +103,7 @@ h3,
 label,
 input,
 button {
-  color: white; /* Change text color to white for all elements */
+  color: white; 
 }
 
 h3 {
@@ -82,11 +120,11 @@ input {
   padding: 8px;
   margin-top: 10px;
   box-sizing: border-box;
-  color: black; /* Change text color to black */
+  color: black; 
 }
 
 input:focus {
-  color: black; /* Change text color to black when focused */
+  color: black; 
 }
 
 button {
@@ -95,7 +133,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   border: none;
-  margin-top: 10px; /* Add margin to the top of the button */
+  margin-top: 10px; 
 }
 
 .navbar {
@@ -104,24 +142,24 @@ button {
   left: 0;
   right: 0;
   width: 100vw;
-  background: rgba(255, 255, 255, 0.7); /* Background color for the navbar */
+  background: rgba(255, 255, 255, 0.7);
   padding: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
-  margin: auto; /* Center the navbar */
-  display: flex; /* Align the buttons horizontally */
-  justify-content: flex-end; /* Push the buttons to the right */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  margin: auto;
+  display: flex; 
+  justify-content: flex-end; 
 }
 
 .buttons {
-  margin-right: 30px; /* Adjusted margin to move buttons a bit to the left */
+  margin-right: 30px; 
 }
 
 .login-button,
-.signup-button {
+.nav-button {
   padding: 5px 30px;
   font-size: 1em;
   color: #333;
-  background-color: #fff; /* White background color */
+  background-color: #fff; 
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -130,6 +168,6 @@ button {
 
 .login-button:hover,
 .signup-button:hover {
-  background-color: #eee; /* Light gray background color on hover */
+  background-color: #eee; 
 }
 </style>

@@ -36,9 +36,9 @@ async function signIn() {
     <nav class="navbar">
       <div class="buttons">
         
-        <NuxtLink to="/" class="signup-button">Home</NuxtLink>
-        <!--<button class="signup-button">Sign Up</button>-->
-        <!--<NuxtLink to="/signup" class="signup-button">Sign Up</NuxtLink>-->
+        <NuxtLink to="/" class="sign-button">Home</NuxtLink>
+        <NuxtLink to="/signup" class="sign-button">Sign Up</NuxtLink>
+
       </div>
     </nav>
   </div>
@@ -69,7 +69,7 @@ h3,
 label,
 input,
 button {
-  color: white; /* Change text color to white for all elements */
+  color: white; 
 }
 
 h3 {
@@ -86,11 +86,11 @@ input {
   padding: 8px;
   margin-top: 5px;
   box-sizing: border-box;
-  color: black; /* Change default text color to white */
+  color: black; 
 }
 
 input:focus {
-  color: black; /* Change text color to black when focused */
+  color: black; 
 }
 
 button {
@@ -99,7 +99,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   border: none;
-  margin-top: 10px; /* Add margin to the top of the button */
+  margin-top: 10px; 
 }
 
 .navbar {
@@ -108,24 +108,24 @@ button {
   left: 0;
   right: 0;
   width: 100vw;
-  background: rgba(255, 255, 255, 0.7); /* Background color for the navbar */
+  background: rgba(255, 255, 255, 0.7); 
   padding: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
-  margin: auto; /* Center the navbar */
-  display: flex; /* Align the buttons horizontally */
-  justify-content: flex-end; /* Push the buttons to the right */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  margin: auto; 
+  display: flex; 
+  justify-content: flex-end; 
 }
 
 .buttons {
-  margin-right: 30px; /* Adjusted margin to move buttons a bit to the left */
+  margin-right: 30px; 
 }
 
 .login-button,
-.signup-button {
+.sign-button {
   padding: 5px 30px;
   font-size: 1em;
   color: #333;
-  background-color: #fff; /* White background color */
+  background-color: #fff; 
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -134,6 +134,6 @@ button {
 
 .login-button:hover,
 .signup-button:hover {
-  background-color: #eee; /* Light gray background color on hover */
+  background-color: #eee; 
 }
 </style>

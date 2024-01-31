@@ -1,3 +1,20 @@
+<script setup>
+  const user = useSupabaseUser();
+  const client = useSupabaseClient();
+  const router = useRouter();
+
+async function logout() {
+    try {
+      const { error } = await client.auth.signOut();
+      if (error) throw error;
+      router.push("/");
+    } catch (error) {
+      console.log(error.message);
+    }
+  }
+
+</script>
+
 <template>
   <main style="background-image: url('https://img.freepik.com/free-vector/worldwide-connection-blue-background-illustration-vector_53876-76826.jpg?w=1380&t=st=1706417840~exp=1706418440~hmac=8f5e49608254d1d0525f522a7aaee378db1e6139bc45cdcd2c849430143d0505'); background-size: cover; background-position: center; height: 100vh;">
     <nav class="navbar">
@@ -74,6 +91,8 @@ export default {
     },
   },
 };
+
+
 </script>
 
 <style scoped>
@@ -93,8 +112,8 @@ export default {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     margin: auto;
     display: flex;
-    justify-content: space-between; /* Use space-between to push items to the ends */
-    align-items: center; /* Center items vertically */
+    justify-content: space-between; 
+    align-items: center; 
   }
 
   .buttons {
@@ -107,7 +126,7 @@ export default {
     padding: 5px 30px;
     font-size: 1em;
     color: #333;
-    background-color: #fff; /* White background color */
+    background-color: #fff; 
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -118,7 +137,7 @@ export default {
     padding: 5px 30px;
     font-size: 1em;
     color: #333;
-    background-color: #fff; /* White background color */
+    background-color: #fff; 
     border: none;
     border-radius: 20px;
     cursor: pointer;
@@ -126,7 +145,7 @@ export default {
   }
 
   .logout-button:hover {
-    background-color: #eee; /* Light gray background color on hover */
+    background-color: #eee; 
   }
 
   .navbar-link {

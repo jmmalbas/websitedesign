@@ -2,12 +2,10 @@
   <div class="welcome-page">
     <nav class="navbar">
       <div class="buttons">
-        <!--<button class="login-button">Login</button>-->
+        
         <NuxtLink to="/login" class="sign-button">Log In</NuxtLink>
-        <!--<button class="signup-button">Sign Up</button>-->
         <NuxtLink to="/signup" class="sign-button">Sign Up</NuxtLink>
-        <!--<NuxtLink to="/employees" class="sign-button">Employees</NuxtLink>
-        <NuxtLink to="/departments" class="sign-button">Departments</NuxtLink>-->
+        
       </div>
     </nav>
     <div class="content-container">
@@ -31,7 +29,7 @@
 
 <script>
 export default {
-  // ... your component options ...
+
 }
 </script>
 
@@ -54,16 +52,16 @@ export default {
   left: 0;
   right: 0;
   width: 100vw;
-  background: rgba(255, 255, 255, 0.7); /* Background color for the navbar */
+  background: rgba(255, 255, 255, 0.7); 
   padding: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
-  margin: auto; /* Center the navbar */
-  display: flex; /* Align the buttons horizontally */
-  justify-content: flex-end; /* Push the buttons to the right */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  margin: auto; 
+  display: flex; 
+  justify-content: flex-end; 
 }
 
 .buttons {
-  margin-right: 30px; /* Adjusted margin to move buttons a bit to the left */
+  margin-right: 30px; 
 }
 
 .login-button,
@@ -71,7 +69,7 @@ export default {
   padding: 5px 30px;
   font-size: 1em;
   color: #333;
-  background-color: #fff; /* White background color */
+  background-color: #fff; 
   border: none;
   border-radius: 20px;
   cursor: pointer;
@@ -80,7 +78,7 @@ export default {
 
 .login-button:hover,
 .sign-button:hover {
-  background-color: #eee; /* Light gray background color on hover */
+  background-color: #eee; 
 }
 
 .content-container {
@@ -123,15 +121,15 @@ export default {
   border-radius: 10px;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  width: 560px; /* Fixed width */
+  width: 560px; 
   margin: auto;
   background-color: rgba(255, 255, 255, 0.8);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .textbox:hover {
-  transform: scale(1.05); /* Zoom in a bit on hover */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Add a bit more shadow on hover */
+  transform: scale(1.05); 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
 }
 
 .description {
