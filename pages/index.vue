@@ -9,8 +9,8 @@
       </div>
     </nav>
     <div class="content-container">
-      <h1 class="title">CPRG - 206</h1>
-      <h1 class="title">Database Web Integration</h1>
+      <h1 class="title"><strong>CPRG - 206</strong></h1>
+      <h1 class="title"><strong>Database Web Integration</strong></h1>
       <div class="image-container">
         <img class="course-image" src="https://img.freepik.com/free-vector/illustration-social-media-concept_53876-18135.jpg?w=1060&t=st=1706246053~exp=1706246653~hmac=626caa7bcfd6466ffa003c31eee7873a461558e8562972b874fe3cb7d0528930" alt="Course Image">
       </div>
@@ -101,8 +101,8 @@ export default {
 .image-container {
   overflow: hidden;
   border-radius: 10px;
-  width: 100%;
-  max-width: 600px;
+
+  max-width: 30%;
   margin: auto;
 }
 
@@ -137,5 +137,6 @@ export default {
   line-height: 1.6;
   font-size: 1.2em;
   color: #333;
+  max-width: 100%;
 }
 </style>

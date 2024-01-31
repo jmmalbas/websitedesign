@@ -23,7 +23,7 @@ async function signIn() {
 <template>
   <div class="login-form">
     <form @submit.prevent="signIn">
-      <h3>Login</h3>
+      <h3 class="login"><strong>Login</strong></h3>
 
       <label for="email">Email:</label>
       <input type="email" id="email" v-model="email" required />
@@ -45,6 +45,11 @@ async function signIn() {
 </template>
 
 <style scoped>
+
+.login {
+  font-size: 25px;
+  color: black;
+}
 .login-form {
   text-align: center;
   margin: auto;
